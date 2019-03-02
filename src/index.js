@@ -1,7 +1,7 @@
 import React from "react"; // import React package 
 import ReactDOM from "react-dom";// // import ReactDOM package
-import App from "./app.js";
+import ProductList from "./components/ProductList";
 import "./style.css";// // import our external css file
 ReactDOM.render(
-  <App />, document.getElementById("content")
+  <ProductList />, document.getElementById("content")
 );
