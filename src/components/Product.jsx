@@ -7,30 +7,37 @@ class Product extends React.Component {
               <div className='container'>
                 <div className="row">
                     <div className="main">
-                      <div className="image">  
-                        <img src={this.props.productImageUrl} />
-                      </div> 
+                        <div className="flexbox-row">  
 
-                      <div className='header'>
-                        <a>
-                          <i className='fa fa-2x fa-caret-up' />
-                        </a>
-                        {this.props.votes}
-                      </div>
-                      <div className='description'>
-                        <a href={this.props.url}>
-                           {this.props.title}
-                        </a>
-                        <p>
-                          {this.props.description}
-                        </p>
-                      </div>
-                      <div className='extra'>
-                        <span>Submitted by:</span>
-                        <img
-                          className='avatar'
-                          src={this.props.submitterAvatarUrl}
-                        />
+                          <div className="image">  
+                            <img src={this.props.productImageUrl} />
+                          </div> 
+
+                          <div className="fexbox-content">
+
+                            <div className='header'>
+                              <a>
+                                <i className='float triangle-up' />
+                              </a>
+                              <span>{this.props.votes}</span>
+                            </div>
+                            <div className='description'>
+                              <a href={this.props.url}>
+                                {this.props.title}
+                              </a>
+                              <p>
+                                {this.props.description}
+                              </p>
+                            </div>
+                            <div className='extra'>
+                              <span>Submitted by:</span>
+                              <img
+                                className='avatar'
+                                src={this.props.submitterAvatarUrl}
+                              />
+                            </div>
+                            
+                          </div>
                       </div>
                     </div>
                 </div>
