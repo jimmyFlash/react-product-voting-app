@@ -1,9 +1,9 @@
 
-div.container {
+.container {
     min-width: 100%;
 }
 
-div.container h1 {
+.container > h1 {
     text-align: center;
 }
 
@@ -54,27 +54,30 @@ div.header {
     /* background-color: aquamarine; */
 }
 
-div.description a{
+.description > a{
 
     margin: 0px;
     text-decoration: none;
 }
 
-div.description p{
+.description > p{
 
     margin: 0px;
 }
 
-div.extra{
+.extra{
+     /* to align to container bottom */
     margin-top:auto;  
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    
 }
 
-div.extra span{
+.extra > span{
     color: dimgrey;
+    /* margin-left: auto; */
 }
 
 i.fa {
@@ -86,7 +89,7 @@ img.avatar {
     height: 30px;
     border-radius: 30px;
     margin-left: 5px;
-    margin-top: 10px;
+    
 }
 
 .triangle-up {
