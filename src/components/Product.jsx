@@ -2,6 +2,20 @@ import React from 'react'; // import react module
 import "../style.css";// // import our external css file
 
 class Product extends React.Component {
+
+  constructor(){
+    super();
+
+      // Bind our handleClick method (sets 'this' explicitly to refer to this componenent)
+    // We did this because 'this' would refer to the source of the click events
+    this.handleProductUpVote = this.handleProductUpVote.bind(this);
+
+  }
+
+  handleProductUpVote() {
+    this.props.onVote(this.props.id);
+  }
+
     render() {
         return (
               <div className='container'>
@@ -16,7 +30,7 @@ class Product extends React.Component {
                           <div className="fexbox-content">
 
                             <div className='header'>
-                              <a>
+                              <a onClick={this.handleProductUpVote}>
                                 <i className='float triangle-up' />
                               </a>
                               <span>{this.props.votes}</span>
