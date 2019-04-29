@@ -3,8 +3,39 @@ import Product from './Product'
 import '../seed.js'
 class ProductList extends React.Component {
 
+    constructor(props){
+        super(props);
+
+        this.state = { products: [] };
+
+        this.handleProductUpVote = this.handleProductUpVote.bind(this);
+    }
+
     handleProductUpVote(productId) {
         console.log(productId + ' was upvoted.');
+        /*
+        map() to traverse the products array. Importantly, map() returns a new array as opposed
+        to modifying the array this.state.products
+        */
+        const nextProducts = this.state.products.map((product) => {
+            // if the current product matches productId. If it does, we create a new object, copying
+            // over the properties from the original product object
+                if (product.id === productId) {
+                    //overwrite the votes property on our 
+                    //new product object. We set it to the incremented vote count. We do this using Object’s assign()
+                    return Object.assign({}, product, {votes: product.votes + 1,});
+                } else {
+                    //current product is not the one specified by productId, we return it unmodified
+                    return product;
+                }
+            });
+
+            this.setState({ products: nextProducts,});
+    }
+
+    // Called immediately after a component is mounted. Setting state here will trigger re-rendering.
+    componentDidMount() {
+        this.setState({ products: Seed.products });
     }
 
 
@@ -13,7 +44,7 @@ class ProductList extends React.Component {
         // products aren’t sorted by the number of votes they have. Let’s sort them. 
         // We’ll use Array’s sort method to do so.
         // sort() mutates the original array it was called on
-        const productsSorted = Seed.products.sort((a, b) => (
+        const productsSorted = this.state.products.sort((a, b) => (
             b.votes - a.votes
             ));
 
