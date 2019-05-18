@@ -17,7 +17,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        options: { presets: ['env'] }
+        options: { plugins: ['transform-class-properties']}
       },
         /*
             rule is for processing CSS. Since we’re not pre-or-post-processing our CSS,

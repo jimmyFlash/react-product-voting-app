@@ -3,15 +3,26 @@ import Product from './Product'
 import '../seed.js'
 class ProductList extends React.Component {
 
+
+    // using babel's property initializer plugin, no need for the constructor invocation 
+    // to define initial state
+  
+    state = {
+        products: [],
+    };
+     
+
     constructor(props){
         super(props);
 
-        this.state = { products: [] };
+        // this.state = { products: [] };
 
-        this.handleProductUpVote = this.handleProductUpVote.bind(this);
+        // this.handleProductUpVote = this.handleProductUpVote.bind(this);
     }
 
-    handleProductUpVote(productId) {
+    // handleProductUpVote(productId) {
+        // using babel's property initializer plugin, no need for the constructor invocation using arrow functions
+    handleProductUpVote = (productId) => {
         console.log(productId + ' was upvoted.');
         /*
         map() to traverse the products array. Importantly, map() returns a new array as opposed

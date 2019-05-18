@@ -3,13 +3,16 @@ import "../style.css";// // import our external css file
 
 class Product extends React.Component {
 
+
+   // using babel's property initializer plugin, no need for the constructor invocation using arrow functions
+   handleProductUpVote = () => (this.props.onVote(this.props.id));
+
   constructor(){
     super();
 
       // Bind our handleClick method (sets 'this' explicitly to refer to this componenent)
     // We did this because 'this' would refer to the source of the click events
-    this.handleProductUpVote = this.handleProductUpVote.bind(this);
-
+    // this.handleProductUpVote = this.handleProductUpVote.bind(this);
   }
 
   handleProductUpVote() {
